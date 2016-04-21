@@ -1,8 +1,12 @@
 from DB import USERS, ROOMS
 
+
 # Communication Channel
 def send(to, msg):
-    to.send(msg + '\n')
+    try:
+        to.send(msg + '\n')
+    except:
+        print "ERROR send message"
 
 
 def broadcast(to, msg, exclude=[]):
@@ -12,7 +16,10 @@ def broadcast(to, msg, exclude=[]):
 
 
 def send_sys_msg(to, msg):
-    to.send("%s : %s" %('SERVER', msg))
+    try:
+        to.send("%s : %s" %('SERVER', msg))
+    except:
+        print "ERROR send message"
 
 
 def broadcast_sys_msg(to, msg, exclude=[]):

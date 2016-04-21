@@ -51,6 +51,8 @@ class Server:
                 else:  # Existing User
                     data = sock.recv(config.BUFFER_SIZE)
                     user = User(sock)
+                    if not data:
+                        user.logoff()
 
                     if len(data) > 1 and data[0] == '\\':
                         command = data[1:].strip()
