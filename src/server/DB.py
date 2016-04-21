@@ -1,0 +1,2 @@
+USERS = {}
+ROOMS = {'public': [], 'funny': []}
